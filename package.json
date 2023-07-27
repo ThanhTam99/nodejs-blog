@@ -2,7 +2,7 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "- npm init(initialise node js project)\r - nodemon(listen changing file and reload, dont need out server) & inspector (npm i nodemon --save-dev)\r # run\r - node index.js\r # change\r - create in scripts (\"start\": nodemon index.js) - npm start\r - \"nodemon (\"start\": nodemon --inspect index.js) \" to debugging",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "abbrev": "^1.1.1",
     "accepts": "^1.3.8",
@@ -29,6 +29,7 @@
     "escape-html": "^1.0.3",
     "etag": "^1.8.1",
     "express": "^4.18.2",
+    "express-handlebars": "^7.1.0",
     "fill-range": "^7.0.1",
     "finalhandler": "^1.2.0",
     "forwarded": "^0.2.0",
@@ -59,7 +60,6 @@
     "minimatch": "^3.1.2",
     "ms": "^2.0.0",
     "negotiator": "^0.6.3",
-    "nodemon": "^3.0.1",
     "nopt": "^1.0.10",
     "normalize-path": "^3.0.0",
     "object-inspect": "^1.12.3",
@@ -94,7 +94,8 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "start": "nodemon --inspect index.js",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resource/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -109,5 +110,10 @@
   "bugs": {
     "url": "https://github.com/ThanhTam99/nodejs-blog/issues"
   },
-  "homepage": "https://github.com/ThanhTam99/nodejs-blog#readme"
+  "homepage": "https://github.com/ThanhTam99/nodejs-blog#readme",
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.0.1"
+  }
 }
