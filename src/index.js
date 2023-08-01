@@ -22,7 +22,7 @@ app.use(express.json());
 
 // template engine
 // re-define short expand from handlebars to hbs
-      const hbs = expressHandlebars.create({
+               const hbs = expressHandlebars.create({
           extname: '.hbs',
       });
               app.engine('hbs', hbs.engine);
