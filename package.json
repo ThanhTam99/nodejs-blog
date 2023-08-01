@@ -94,6 +94,7 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
+    "beautiful": "lint-staged",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resource/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -111,9 +112,20 @@
     "url": "https://github.com/ThanhTam99/nodejs-blog/issues"
   },
   "homepage": "https://github.com/ThanhTam99/nodejs-blog#readme",
+  "lint-staged": {
+    "./src/**/*.{js,json,scss}": "prettier --tab-width 4 --write --single-quote --trailing-comma all"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "morgan": "^1.10.0",
     "node-sass": "^9.0.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.0"
   }
 }
