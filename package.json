@@ -95,7 +95,7 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "beautiful": "prettier ./src/**/*.{js,json,scss} --tab-width 4 --write --single-quote --trailing-comma all",
+    "beautiful": "lint-staged",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resource/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
