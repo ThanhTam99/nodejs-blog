@@ -1,4 +1,19 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
-lint-staged
+# Lấy đường dẫn tới thư mục hiện tại của script
+DIR="$(dirname -- "$0")"
+
+# Source file husky.sh
+. "$DIR/_/husky.sh"
+
+# Chạy lint-staged qua npx
+npx lint-staged
+
+# Kiểm tra lỗi của lệnh trước đó
+if [ $? -ne 0 ]; then
+  echo "lint-staged failed!"
+  exit 1
+fi
+
+echo "Pre-commit hook passed"
+exit 0

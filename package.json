@@ -58,6 +58,7 @@
     "mime-db": "^1.52.0",
     "mime-types": "^2.1.35",
     "minimatch": "^3.1.2",
+    "mongoose": "^7.4.1",
     "ms": "^2.0.0",
     "negotiator": "^0.6.3",
     "nopt": "^1.0.10",
@@ -94,6 +95,7 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
+    "beautiful": "prettier ./src/**/*.{js,json,scss} --tab-width 4 --write --single-quote --trailing-comma all",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resource/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -4,6 +4,10 @@ const morgan = require('morgan');
 const expressHandlebars = require('express-handlebars');
 const app = express(); // instance
 const port = 3000;
+const db = require('./config/db');
+
+// connect to db
+db.connect();
 
 const route = require('./routes');
 
@@ -22,22 +26,22 @@ app.use(express.json());
 
 // template engine
 // re-define short expand from handlebars to hbs
-               const hbs = expressHandlebars.create({
-          extname: '.hbs',
-      });
-              app.engine('hbs', hbs.engine);
-      app.set('view engine', 'hbs');
-      app.set('views', path.join(__dirname, 'resource/views'));
-      // console.log('PATH: ', path.join(__dirname, 'resource/views'));
+const hbs = expressHandlebars.create({
+    extname: '.hbs',
+});
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'resource', 'views'));
+// console.log('PATH: ', path.join(__dirname, 'resource/views'));
 
-      //config static image (locahost:3000/img/logo.png)
-      app.use(express.static(path.join(__dirname, 'public')));
+//config static image (locahost:3000/img/logo.png)
+app.use(express.static(path.join(__dirname, 'public')));
 
-      //Home, search, contact
-      // route init
-      route(app);
+//Home, search, contact
+// route init
+route(app);
 
-      // 127.0.0.0 - mapping to brow (localhost)
-      app.listen(port, () => {
-          console.log(`Example app listening on port ${port}`);
-      });
+// 127.0.0.0 - mapping to brow (localhost)
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
+});
